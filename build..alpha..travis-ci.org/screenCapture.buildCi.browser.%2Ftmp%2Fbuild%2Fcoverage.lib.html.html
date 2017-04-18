@@ -1,7 +1,5 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <title>Code coverage report for node-npmtest-sprintf-js/sprintf-js/src/sprintf.js</title>
+<html lang="en"><head>
+    <title>Code coverage report for node-npmtest-sprintf-js/node_modules/sprintf-js/src/sprintf.js</title>
     <meta charset="utf-8">
     <style>
         body, html {
@@ -194,7 +192,7 @@
     <h1 style="font-weight: bold;">
         <a href="https://github.com/npmtest/node-npmtest-sprintf-js">npmtest-sprintf-js (v0.0.1)</a>
     </h1>
-    <h1>Code coverage report for <span class="entity">node-npmtest-sprintf-js/sprintf-js/src/sprintf.js</span></h1>
+    <h1>Code coverage report for <span class="entity">node-npmtest-sprintf-js/node_modules/sprintf-js/src/sprintf.js</span></h1>
     <h2>
         
         Statements: <span class="metric">10.81% <small>(12 / 111)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
@@ -210,11 +208,11 @@
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
-    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">node-npmtest-sprintf-js/sprintf-js/src/</a> &#187; sprintf.js</div>
+    <div class="path"><a href="../../../../index.html">All files</a> » <a href="index.html">node-npmtest-sprintf-js/node_modules/sprintf-js/src/</a> » sprintf.js</div>
 </div>
 <div class="body">
 <pre><table class="coverage">
-<tr><td class="line-count">1
+<tbody><tr><td class="line-count">1
 2
 3
 4
@@ -647,205 +645,206 @@
         sign: /^[\+\-]/
     }
 &nbsp;
-<span class="fstat-no" title="function not covered" >    function sprintf() {</span>
-<span class="cstat-no" title="statement not covered" >        var key = arguments[0], cache = sprintf.cache</span>
-<span class="cstat-no" title="statement not covered" >        if (!(cache[key] &amp;&amp; cache.hasOwnProperty(key))) {</span>
-<span class="cstat-no" title="statement not covered" >            cache[key] = sprintf.parse(key)</span>
+<span class="fstat-no" title="function not covered">    function sprintf() {</span>
+<span class="cstat-no" title="statement not covered">        var key = arguments[0], cache = sprintf.cache</span>
+<span class="cstat-no" title="statement not covered">        if (!(cache[key] &amp;&amp; cache.hasOwnProperty(key))) {</span>
+<span class="cstat-no" title="statement not covered">            cache[key] = sprintf.parse(key)</span>
         }
-<span class="cstat-no" title="statement not covered" >        return sprintf.format.call(null, cache[key], arguments)</span>
+<span class="cstat-no" title="statement not covered">        return sprintf.format.call(null, cache[key], arguments)</span>
     }
 &nbsp;
-    sprintf.format = <span class="fstat-no" title="function not covered" >function(parse_tree, argv) {</span>
-<span class="cstat-no" title="statement not covered" >        var cursor = 1, tree_length = parse_tree.length, node_type = "", arg, output = [], i, k, match, pad, pad_character, pad_length, is_positive = true, sign = ""</span>
-<span class="cstat-no" title="statement not covered" >        for (i = 0; i &lt; tree_length; i++) {</span>
-<span class="cstat-no" title="statement not covered" >            node_type = get_type(parse_tree[i])</span>
-<span class="cstat-no" title="statement not covered" >            if (node_type === "string") {</span>
-<span class="cstat-no" title="statement not covered" >                output[output.length] = parse_tree[i]</span>
+    sprintf.format = <span class="fstat-no" title="function not covered">function(parse_tree, argv) {</span>
+<span class="cstat-no" title="statement not covered">        var cursor = 1, tree_length = parse_tree.length, node_type = "", arg, output = [], i, k, match, pad, pad_character, pad_length, is_positive = true, sign = ""</span>
+<span class="cstat-no" title="statement not covered">        for (i = 0; i &lt; tree_length; i++) {</span>
+<span class="cstat-no" title="statement not covered">            node_type = get_type(parse_tree[i])</span>
+<span class="cstat-no" title="statement not covered">            if (node_type === "string") {</span>
+<span class="cstat-no" title="statement not covered">                output[output.length] = parse_tree[i]</span>
             }
-            else <span class="cstat-no" title="statement not covered" >if (node_type === "array") {</span>
-<span class="cstat-no" title="statement not covered" >                match = parse_tree[i] </span>// convenience purposes only
-<span class="cstat-no" title="statement not covered" >                if (match[2]) { // keyword argument</span>
-<span class="cstat-no" title="statement not covered" >                    arg = argv[cursor]</span>
-<span class="cstat-no" title="statement not covered" >                    for (k = 0; k &lt; match[2].length; k++) {</span>
-<span class="cstat-no" title="statement not covered" >                        if (!arg.hasOwnProperty(match[2][k])) {</span>
-<span class="cstat-no" title="statement not covered" >                            throw new Error(sprintf("[sprintf] property '%s' does not exist", match[2][k]))</span>
+            else <span class="cstat-no" title="statement not covered">if (node_type === "array") {</span>
+<span class="cstat-no" title="statement not covered">                match = parse_tree[i] </span>// convenience purposes only
+<span class="cstat-no" title="statement not covered">                if (match[2]) { // keyword argument</span>
+<span class="cstat-no" title="statement not covered">                    arg = argv[cursor]</span>
+<span class="cstat-no" title="statement not covered">                    for (k = 0; k &lt; match[2].length; k++) {</span>
+<span class="cstat-no" title="statement not covered">                        if (!arg.hasOwnProperty(match[2][k])) {</span>
+<span class="cstat-no" title="statement not covered">                            throw new Error(sprintf("[sprintf] property '%s' does not exist", match[2][k]))</span>
                         }
-<span class="cstat-no" title="statement not covered" >                        arg = arg[match[2][k]]</span>
+<span class="cstat-no" title="statement not covered">                        arg = arg[match[2][k]]</span>
                     }
                 }
-                else <span class="cstat-no" title="statement not covered" >if (match[1]) { // positional argument (explicit)</span>
-<span class="cstat-no" title="statement not covered" >                    arg = argv[match[1]]</span>
+                else <span class="cstat-no" title="statement not covered">if (match[1]) { // positional argument (explicit)</span>
+<span class="cstat-no" title="statement not covered">                    arg = argv[match[1]]</span>
                 }
                 else { // positional argument (implicit)
-<span class="cstat-no" title="statement not covered" >                    arg = argv[cursor++]</span>
+<span class="cstat-no" title="statement not covered">                    arg = argv[cursor++]</span>
                 }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >                if (get_type(arg) == "function") {</span>
-<span class="cstat-no" title="statement not covered" >                    arg = arg()</span>
+<span class="cstat-no" title="statement not covered">                if (get_type(arg) == "function") {</span>
+<span class="cstat-no" title="statement not covered">                    arg = arg()</span>
                 }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >                if (re.not_string.test(match[8]) &amp;&amp; re.not_json.test(match[8]) &amp;&amp; (get_type(arg) != "number" &amp;&amp; isNaN(arg))) {</span>
-<span class="cstat-no" title="statement not covered" >                    throw new TypeError(sprintf("[sprintf] expecting number but found %s", get_type(arg)))</span>
+<span class="cstat-no" title="statement not covered">                if (re.not_string.test(match[8]) &amp;&amp; re.not_json.test(match[8]) &amp;&amp; (get_type(arg) != "number" &amp;&amp; isNaN(arg))) {</span>
+<span class="cstat-no" title="statement not covered">                    throw new TypeError(sprintf("[sprintf] expecting number but found %s", get_type(arg)))</span>
                 }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >                if (re.number.test(match[8])) {</span>
-<span class="cstat-no" title="statement not covered" >                    is_positive = arg &gt;= 0</span>
+<span class="cstat-no" title="statement not covered">                if (re.number.test(match[8])) {</span>
+<span class="cstat-no" title="statement not covered">                    is_positive = arg &gt;= 0</span>
                 }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >                switch (match[8]) {</span>
+<span class="cstat-no" title="statement not covered">                switch (match[8]) {</span>
                     case "b":
-<span class="cstat-no" title="statement not covered" >                        arg = arg.toString(2)</span>
-<span class="cstat-no" title="statement not covered" >                    break</span>
+<span class="cstat-no" title="statement not covered">                        arg = arg.toString(2)</span>
+<span class="cstat-no" title="statement not covered">                    break</span>
                     case "c":
-<span class="cstat-no" title="statement not covered" >                        arg = String.fromCharCode(arg)</span>
-<span class="cstat-no" title="statement not covered" >                    break</span>
+<span class="cstat-no" title="statement not covered">                        arg = String.fromCharCode(arg)</span>
+<span class="cstat-no" title="statement not covered">                    break</span>
                     case "d":
                     case "i":
-<span class="cstat-no" title="statement not covered" >                        arg = parseInt(arg, 10)</span>
-<span class="cstat-no" title="statement not covered" >                    break</span>
+<span class="cstat-no" title="statement not covered">                        arg = parseInt(arg, 10)</span>
+<span class="cstat-no" title="statement not covered">                    break</span>
                     case "j":
-<span class="cstat-no" title="statement not covered" >                        arg = JSON.stringify(arg, null, match[6] ? parseInt(match[6]) : 0)</span>
-<span class="cstat-no" title="statement not covered" >                    break</span>
+<span class="cstat-no" title="statement not covered">                        arg = JSON.stringify(arg, null, match[6] ? parseInt(match[6]) : 0)</span>
+<span class="cstat-no" title="statement not covered">                    break</span>
                     case "e":
-<span class="cstat-no" title="statement not covered" >                        arg = match[7] ? arg.toExponential(match[7]) : arg.toExponential()</span>
-<span class="cstat-no" title="statement not covered" >                    break</span>
+<span class="cstat-no" title="statement not covered">                        arg = match[7] ? arg.toExponential(match[7]) : arg.toExponential()</span>
+<span class="cstat-no" title="statement not covered">                    break</span>
                     case "f":
-<span class="cstat-no" title="statement not covered" >                        arg = match[7] ? parseFloat(arg).toFixed(match[7]) : parseFloat(arg)</span>
-<span class="cstat-no" title="statement not covered" >                    break</span>
+<span class="cstat-no" title="statement not covered">                        arg = match[7] ? parseFloat(arg).toFixed(match[7]) : parseFloat(arg)</span>
+<span class="cstat-no" title="statement not covered">                    break</span>
                     case "g":
-<span class="cstat-no" title="statement not covered" >                        arg = match[7] ? parseFloat(arg).toPrecision(match[7]) : parseFloat(arg)</span>
-<span class="cstat-no" title="statement not covered" >                    break</span>
+<span class="cstat-no" title="statement not covered">                        arg = match[7] ? parseFloat(arg).toPrecision(match[7]) : parseFloat(arg)</span>
+<span class="cstat-no" title="statement not covered">                    break</span>
                     case "o":
-<span class="cstat-no" title="statement not covered" >                        arg = arg.toString(8)</span>
-<span class="cstat-no" title="statement not covered" >                    break</span>
+<span class="cstat-no" title="statement not covered">                        arg = arg.toString(8)</span>
+<span class="cstat-no" title="statement not covered">                    break</span>
                     case "s":
-<span class="cstat-no" title="statement not covered" >                        arg = ((arg = String(arg)) &amp;&amp; match[7] ? arg.substring(0, match[7]) : arg)</span>
-<span class="cstat-no" title="statement not covered" >                    break</span>
+<span class="cstat-no" title="statement not covered">                        arg = ((arg = String(arg)) &amp;&amp; match[7] ? arg.substring(0, match[7]) : arg)</span>
+<span class="cstat-no" title="statement not covered">                    break</span>
                     case "u":
-<span class="cstat-no" title="statement not covered" >                        arg = arg &gt;&gt;&gt; 0</span>
-<span class="cstat-no" title="statement not covered" >                    break</span>
+<span class="cstat-no" title="statement not covered">                        arg = arg &gt;&gt;&gt; 0</span>
+<span class="cstat-no" title="statement not covered">                    break</span>
                     case "x":
-<span class="cstat-no" title="statement not covered" >                        arg = arg.toString(16)</span>
-<span class="cstat-no" title="statement not covered" >                    break</span>
+<span class="cstat-no" title="statement not covered">                        arg = arg.toString(16)</span>
+<span class="cstat-no" title="statement not covered">                    break</span>
                     case "X":
-<span class="cstat-no" title="statement not covered" >                        arg = arg.toString(16).toUpperCase()</span>
-<span class="cstat-no" title="statement not covered" >                    break</span>
+<span class="cstat-no" title="statement not covered">                        arg = arg.toString(16).toUpperCase()</span>
+<span class="cstat-no" title="statement not covered">                    break</span>
                 }
-<span class="cstat-no" title="statement not covered" >                if (re.json.test(match[8])) {</span>
-<span class="cstat-no" title="statement not covered" >                    output[output.length] = arg</span>
+<span class="cstat-no" title="statement not covered">                if (re.json.test(match[8])) {</span>
+<span class="cstat-no" title="statement not covered">                    output[output.length] = arg</span>
                 }
                 else {
-<span class="cstat-no" title="statement not covered" >                    if (re.number.test(match[8]) &amp;&amp; (!is_positive || match[3])) {</span>
-<span class="cstat-no" title="statement not covered" >                        sign = is_positive ? "+" : "-"</span>
-<span class="cstat-no" title="statement not covered" >                        arg = arg.toString().replace(re.sign, "")</span>
+<span class="cstat-no" title="statement not covered">                    if (re.number.test(match[8]) &amp;&amp; (!is_positive || match[3])) {</span>
+<span class="cstat-no" title="statement not covered">                        sign = is_positive ? "+" : "-"</span>
+<span class="cstat-no" title="statement not covered">                        arg = arg.toString().replace(re.sign, "")</span>
                     }
                     else {
-<span class="cstat-no" title="statement not covered" >                        sign = ""</span>
+<span class="cstat-no" title="statement not covered">                        sign = ""</span>
                     }
-<span class="cstat-no" title="statement not covered" >                    pad_character = match[4] ? match[4] === "0" ? "0" : match[4].charAt(1) : " "</span>
-<span class="cstat-no" title="statement not covered" >                    pad_length = match[6] - (sign + arg).length</span>
-<span class="cstat-no" title="statement not covered" >                    pad = match[6] ? (pad_length &gt; 0 ? str_repeat(pad_character, pad_length) : "") : ""</span>
-<span class="cstat-no" title="statement not covered" >                    output[output.length] = match[5] ? sign + arg + pad : (pad_character === "0" ? sign + pad + arg : pad + sign + arg)</span>
+<span class="cstat-no" title="statement not covered">                    pad_character = match[4] ? match[4] === "0" ? "0" : match[4].charAt(1) : " "</span>
+<span class="cstat-no" title="statement not covered">                    pad_length = match[6] - (sign + arg).length</span>
+<span class="cstat-no" title="statement not covered">                    pad = match[6] ? (pad_length &gt; 0 ? str_repeat(pad_character, pad_length) : "") : ""</span>
+<span class="cstat-no" title="statement not covered">                    output[output.length] = match[5] ? sign + arg + pad : (pad_character === "0" ? sign + pad + arg : pad + sign + arg)</span>
                 }
             }
         }
-<span class="cstat-no" title="statement not covered" >        return output.join("")</span>
+<span class="cstat-no" title="statement not covered">        return output.join("")</span>
     }
 &nbsp;
     sprintf.cache = {}
 &nbsp;
-    sprintf.parse = <span class="fstat-no" title="function not covered" >function(fmt) {</span>
-<span class="cstat-no" title="statement not covered" >        var _fmt = fmt, match = [], parse_tree = [], arg_names = 0</span>
-<span class="cstat-no" title="statement not covered" >        while (_fmt) {</span>
-<span class="cstat-no" title="statement not covered" >            if ((match = re.text.exec(_fmt)) !== null) {</span>
-<span class="cstat-no" title="statement not covered" >                parse_tree[parse_tree.length] = match[0]</span>
+    sprintf.parse = <span class="fstat-no" title="function not covered">function(fmt) {</span>
+<span class="cstat-no" title="statement not covered">        var _fmt = fmt, match = [], parse_tree = [], arg_names = 0</span>
+<span class="cstat-no" title="statement not covered">        while (_fmt) {</span>
+<span class="cstat-no" title="statement not covered">            if ((match = re.text.exec(_fmt)) !== null) {</span>
+<span class="cstat-no" title="statement not covered">                parse_tree[parse_tree.length] = match[0]</span>
             }
-            else <span class="cstat-no" title="statement not covered" >if ((match = re.modulo.exec(_fmt)) !== null) {</span>
-<span class="cstat-no" title="statement not covered" >                parse_tree[parse_tree.length] = "%"</span>
+            else <span class="cstat-no" title="statement not covered">if ((match = re.modulo.exec(_fmt)) !== null) {</span>
+<span class="cstat-no" title="statement not covered">                parse_tree[parse_tree.length] = "%"</span>
             }
-            else <span class="cstat-no" title="statement not covered" >if ((match = re.placeholder.exec(_fmt)) !== null) {</span>
-<span class="cstat-no" title="statement not covered" >                if (match[2]) {</span>
-<span class="cstat-no" title="statement not covered" >                    arg_names |= 1</span>
-<span class="cstat-no" title="statement not covered" >                    var field_list = [], replacement_field = match[2], field_match = []</span>
-<span class="cstat-no" title="statement not covered" >                    if ((field_match = re.key.exec(replacement_field)) !== null) {</span>
-<span class="cstat-no" title="statement not covered" >                        field_list[field_list.length] = field_match[1]</span>
-<span class="cstat-no" title="statement not covered" >                        while ((replacement_field = replacement_field.substring(field_match[0].length)) !== "") {</span>
-<span class="cstat-no" title="statement not covered" >                            if ((field_match = re.key_access.exec(replacement_field)) !== null) {</span>
-<span class="cstat-no" title="statement not covered" >                                field_list[field_list.length] = field_match[1]</span>
+            else <span class="cstat-no" title="statement not covered">if ((match = re.placeholder.exec(_fmt)) !== null) {</span>
+<span class="cstat-no" title="statement not covered">                if (match[2]) {</span>
+<span class="cstat-no" title="statement not covered">                    arg_names |= 1</span>
+<span class="cstat-no" title="statement not covered">                    var field_list = [], replacement_field = match[2], field_match = []</span>
+<span class="cstat-no" title="statement not covered">                    if ((field_match = re.key.exec(replacement_field)) !== null) {</span>
+<span class="cstat-no" title="statement not covered">                        field_list[field_list.length] = field_match[1]</span>
+<span class="cstat-no" title="statement not covered">                        while ((replacement_field = replacement_field.substring(field_match[0].length)) !== "") {</span>
+<span class="cstat-no" title="statement not covered">                            if ((field_match = re.key_access.exec(replacement_field)) !== null) {</span>
+<span class="cstat-no" title="statement not covered">                                field_list[field_list.length] = field_match[1]</span>
                             }
-                            else <span class="cstat-no" title="statement not covered" >if ((field_match = re.index_access.exec(replacement_field)) !== null) {</span>
-<span class="cstat-no" title="statement not covered" >                                field_list[field_list.length] = field_match[1]</span>
+                            else <span class="cstat-no" title="statement not covered">if ((field_match = re.index_access.exec(replacement_field)) !== null) {</span>
+<span class="cstat-no" title="statement not covered">                                field_list[field_list.length] = field_match[1]</span>
                             }
                             else {
-<span class="cstat-no" title="statement not covered" >                                throw new SyntaxError("[sprintf] failed to parse named argument key")</span>
+<span class="cstat-no" title="statement not covered">                                throw new SyntaxError("[sprintf] failed to parse named argument key")</span>
                             }
                         }
                     }
                     else {
-<span class="cstat-no" title="statement not covered" >                        throw new SyntaxError("[sprintf] failed to parse named argument key")</span>
+<span class="cstat-no" title="statement not covered">                        throw new SyntaxError("[sprintf] failed to parse named argument key")</span>
                     }
-<span class="cstat-no" title="statement not covered" >                    match[2] = field_list</span>
+<span class="cstat-no" title="statement not covered">                    match[2] = field_list</span>
                 }
                 else {
-<span class="cstat-no" title="statement not covered" >                    arg_names |= 2</span>
+<span class="cstat-no" title="statement not covered">                    arg_names |= 2</span>
                 }
-<span class="cstat-no" title="statement not covered" >                if (arg_names === 3) {</span>
-<span class="cstat-no" title="statement not covered" >                    throw new Error("[sprintf] mixing positional and named placeholders is not (yet) supported")</span>
+<span class="cstat-no" title="statement not covered">                if (arg_names === 3) {</span>
+<span class="cstat-no" title="statement not covered">                    throw new Error("[sprintf] mixing positional and named placeholders is not (yet) supported")</span>
                 }
-<span class="cstat-no" title="statement not covered" >                parse_tree[parse_tree.length] = match</span>
+<span class="cstat-no" title="statement not covered">                parse_tree[parse_tree.length] = match</span>
             }
             else {
-<span class="cstat-no" title="statement not covered" >                throw new SyntaxError("[sprintf] unexpected placeholder")</span>
+<span class="cstat-no" title="statement not covered">                throw new SyntaxError("[sprintf] unexpected placeholder")</span>
             }
-<span class="cstat-no" title="statement not covered" >            _fmt = _fmt.substring(match[0].length)</span>
+<span class="cstat-no" title="statement not covered">            _fmt = _fmt.substring(match[0].length)</span>
         }
-<span class="cstat-no" title="statement not covered" >        return parse_tree</span>
+<span class="cstat-no" title="statement not covered">        return parse_tree</span>
     }
 &nbsp;
-    var vsprintf = <span class="fstat-no" title="function not covered" >function(fmt, argv, _argv) {</span>
-<span class="cstat-no" title="statement not covered" >        _argv = (argv || []).slice(0)</span>
-<span class="cstat-no" title="statement not covered" >        _argv.splice(0, 0, fmt)</span>
-<span class="cstat-no" title="statement not covered" >        return sprintf.apply(null, _argv)</span>
+    var vsprintf = <span class="fstat-no" title="function not covered">function(fmt, argv, _argv) {</span>
+<span class="cstat-no" title="statement not covered">        _argv = (argv || []).slice(0)</span>
+<span class="cstat-no" title="statement not covered">        _argv.splice(0, 0, fmt)</span>
+<span class="cstat-no" title="statement not covered">        return sprintf.apply(null, _argv)</span>
     }
 &nbsp;
     /**
      * helpers
      */
-<span class="fstat-no" title="function not covered" >    function get_type(variable) {</span>
-<span class="cstat-no" title="statement not covered" >        return Object.prototype.toString.call(variable).slice(8, -1).toLowerCase()</span>
+<span class="fstat-no" title="function not covered">    function get_type(variable) {</span>
+<span class="cstat-no" title="statement not covered">        return Object.prototype.toString.call(variable).slice(8, -1).toLowerCase()</span>
     }
 &nbsp;
-<span class="fstat-no" title="function not covered" >    function str_repeat(input, multiplier) {</span>
-<span class="cstat-no" title="statement not covered" >        return Array(multiplier + 1).join(input)</span>
+<span class="fstat-no" title="function not covered">    function str_repeat(input, multiplier) {</span>
+<span class="cstat-no" title="statement not covered">        return Array(multiplier + 1).join(input)</span>
     }
 &nbsp;
     /**
      * export to either browser or node.js
      */
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (typeof exports !== "undefined") {
+    <span class="missing-if-branch" title="else path not taken">E</span>if (typeof exports !== "undefined") {
         exports.sprintf = sprintf
         exports.vsprintf = vsprintf
     }
     else {
-<span class="cstat-no" title="statement not covered" >        window.sprintf = sprintf</span>
-<span class="cstat-no" title="statement not covered" >        window.vsprintf = vsprintf</span>
+<span class="cstat-no" title="statement not covered">        window.sprintf = sprintf</span>
+<span class="cstat-no" title="statement not covered">        window.vsprintf = vsprintf</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        if (typeof define === "function" &amp;&amp; define.amd) {</span>
-<span class="cstat-no" title="statement not covered" >            define(<span class="fstat-no" title="function not covered" >function() {</span></span>
-<span class="cstat-no" title="statement not covered" >                return {</span>
+<span class="cstat-no" title="statement not covered">        if (typeof define === "function" &amp;&amp; define.amd) {</span>
+<span class="cstat-no" title="statement not covered">            define(<span class="fstat-no" title="function not covered">function() {</span></span>
+<span class="cstat-no" title="statement not covered">                return {</span>
                     sprintf: sprintf,
                     vsprintf: vsprintf
                 }
             })
         }
     }
-})(typeof window === "undefined" ? this : <span class="branch-1 cbranch-no" title="branch not covered" >window)</span>;
+})(typeof window === "undefined" ? this : <span class="branch-1 cbranch-no" title="branch not covered">window)</span>;
 &nbsp;
 &nbsp;</pre></td></tr>
-</table></pre>
+</tbody></table></pre>
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Tue Apr 11 2017 18:57:51 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Tue Apr 18 2017 20:11:28 GMT+0000 (UTC)</div>
 </div>
-</body>
-</html>
+
+
+</body></html>
